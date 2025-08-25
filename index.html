@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CloudComputing Skills Lab - 12-Week Cloud Training</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9fbfd;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* Hero Section with Background Image */
+    .hero {
+      height: 520px;
+      background: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      color: white;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 30, 80, 0.78);
+      z-index: 0;
+    }
+
+    .hero-content {
+      z-index: 1;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+
+    .btn-hero {
+      display: inline-block;
+      background: #00d88d;
+      color: white;
+      padding: 1rem 2.2rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(0, 216, 141, 0.3);
+      margin: 0.5rem 10px;
+    }
+
+    .btn-hero:hover {
+      background: #00b575;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 216, 141, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 0;
+    }
+
+    section {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.9rem;
+      color: #0056b3;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: #007bff;
+      margin: 15px auto;
+    }
+
+    h3 {
+      color: #0056b3;
+      margin-bottom: 1rem;
+    }
+
+    p, ul {
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    ul li i {
+      color: #007bff;
+      background: #e3f2fd;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 0.9rem;
+    }
+
+    .info-box {
+      background: #f0f7ff;
+      padding: 1.6rem;
+      border-radius: 10px;
+      border-left: 5px solid #007bff;
+    }
+
+    /* Roadmap Grid */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .roadmap-btn {
+      padding: 1.2rem 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: 2px solid #007bff;
+      background: white;
+      color: #007bff;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .roadmap-btn::before {
+      content: '●';
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 0.8rem;
+      opacity: 0;
+      color: #00d88d;
+    }
+
+    .roadmap-btn.active {
+      background: #007bff;
+      color: white;
+      border-color: #0056b3;
+    }
+
+    .roadmap-btn.active::before {
+      opacity: 1;
+    }
+
+    .roadmap-btn:hover {
+      background: #e3f2fd;
+      transform: translateY(-3px);
+    }
+
+    /* Content Panel */
+    .roadmap-content {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .roadmap-content h3 {
+      color: #0056b3;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .roadmap-content p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 800px;
+      line-height: 1.8;
+    }
+
+    /* Countdown Timer */
+    .countdown {
+      text-align: center;
+      margin: 1.5rem 0;
+      font-size: 1.3rem;
+      color: #d9534f;
+      font-weight: 600;
+    }
+
+    .countdown span {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 0.4rem 0.8rem;
+      background: #fff3cd;
+      border-radius: 6px;
+      color: #856404;
+      min-width: 70px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: #002f6c;
+      color: #ddd;
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: #64b5f6;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .social-links a {
+      font-size: 1.4rem;
+      color: #fff;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #007bff;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .roadmap-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .roadmap-grid {
+        grid-template-columns: 1fr;
+      }
+      .btn-hero {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .container {
+        width: 95%;
+        padding: 2rem 0;
+      }
+      section {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>CloudComputing Skills Lab</h1>
+      <p>12-Week Intensive Cloud Training | Master AWS, Docker, Kubernetes & More</p>
+      <div>
+        <a href="https://forms.google.com/your-google-form-link" class="btn-hero" target="_blank">
+          <i class="fas fa-clipboard-check"></i> Register Now
+        </a>
+      </div>
+      <div class="countdown" id="countdown">
+        <p>Registration closes in:</p>
+        <span id="days">0</span> Days
+        <span id="hours">0</span> Hrs
+        <span id="minutes">0</span> Mins
+        <span id="seconds">0</span> Sec
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container">
+
+    <!-- About Section -->
+    <section>
+      <h2>About the Training</h2>
+      <p>
+        This <strong>12-week intensive cloud computing training</strong> is designed to take beginners and career changers from zero to job-ready in the cloud industry.
+      </p>
+      <p>
+        You’ll gain hands-on experience with real tools used by top tech companies, guided by industry professionals. Whether you're aiming for DevOps roles, or cloud engineering jobs — this program gives you the practical skills employers want.
+      </p>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section>
+      <h2>Training Roadmap</h2>
+      <div class="roadmap-grid" id="roadmapButtons">
+        <button class="roadmap-btn active" data-index="0">Linux Admin</button>
+        <button class="roadmap-btn" data-index="1">AWS Fundamentals</button>
+        <button class="roadmap-btn" data-index="2">Terraform (IaC)</button>
+        <button class="roadmap-btn" data-index="3">Docker</button>
+        <button class="roadmap-btn" data-index="4">Kubernetes</button>
+        <button class="roadmap-btn" data-index="5">CI/CD</button>
+        <button class="roadmap-btn" data-index="6">Monitoring & Logging</button>
+      </div>
+      <div class="roadmap-content" id="roadmapContent">
+        <!-- Content loaded by JS -->
+      </div>
+    </section>
+
+    <!-- Program Details -->
+    <section>
+      <h2>Program Details</h2>
+      <ul>
+        <li><i class="fas fa-clock"></i> <strong>Duration:</strong> 12 Weeks (Intensive)</li>
+        <li><i class="fas fa-calendar-alt"></i> <strong>Hours:</strong> 6 hours per day, 5 days a week</li>
+        <li><i class="fas fa-money-bill-wave"></i> <strong>Registration Fee:</strong> 500 GHS (One-time payment)</li>
+        <li><i class="fas fa-edit"></i> <strong>Registration Period:</strong> August 26th – July 20th</li>
+        <li><i class="fas fa-globe"></i> <strong>Format:</strong> Online</li>
+      </ul>
+    </section>
+
+    <!-- Requirements -->
+    <section>
+      <h2>Requirements</h2>
+      <div class="info-box">
+        <ul>
+          <li><i class="fas fa-laptop"></i> A functional laptop (Windows, Mac, or Linux)</li>
+          <li><i class="fas fa-wifi"></i> Stable internet connection</li>
+          <li><i class="fas fa-book"></i> Basic computer knowledge (files, folders, browsing)</li>
+          <li><i class="fas fa-check-circle"></i> Commitment to attend sessions and complete labs</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section>
+      <h2>Contact Us</h2>
+      <ul>
+        <li><i class="fas fa-envelope"></i> <a href="mailto:cloudcomputingskill.lab@gmail.com">cloudcomputingskill.lab@gmail.com</a></li>
+        <li><i class="fas fa-phone-alt"></i> <a href="tel:+233509935791">050 993 5791</a></li>
+        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/233509935791" target="_blank">Chat on WhatsApp</a></li>
+      </ul>
+      <p>We respond within 24 hours. Feel free to reach out!</p>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 CloudComputing Skills Lab. All rights reserved.</p>
+    <p>Empowering the next generation of cloud professionals.</p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="https://wa.me/233509935791"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // === Roadmap Interactive ===
+    const roadmapData = [
+      { title: "Week 1–2: Linux Administration", desc: "Master command line, file systems, permissions, shell scripting, and server management. Build a strong foundation for cloud operations." },
+      { title: "Week 3–4: Cloud Fundamentals (AWS)", desc: "Learn EC2, S3, VPC, IAM, Lambda, and core AWS services. Get hands-on with real cloud environments and best practices." },
+      { title: "Week 5: Infrastructure as Code (Terraform)", desc: "Automate cloud infrastructure using Terraform. Write reusable, version-controlled code to deploy AWS resources reliably." },
+      { title: "Week 6: Docker & Containerization", desc: "Package applications into containers using Docker. Learn images, containers, Dockerfiles, and container lifecycle management." },
+      { title: "Week 7–8: Kubernetes (K8s)", desc: "Orchestrate containers at scale with Kubernetes. Deploy clusters, manage pods, services, and scaling in production environments." },
+      { title: "Week 9–10: CI/CD Pipelines", desc: "Build automated pipelines using Jenkins, GitHub Actions, or AWS CodePipeline. Implement testing, staging, and deployment workflows." },
+      { title: "Week 11–12: Monitoring & Logging", desc: "Use Prometheus, Grafana, CloudWatch, and ELK Stack to monitor performance, troubleshoot issues, and ensure system reliability." }
+    ];
+
+    const contentDiv = document.getElementById("roadmapContent");
+    const buttons = document.querySelectorAll(".roadmap-btn");
+
+    updateContent(0);
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const index = btn.dataset.index;
+        updateContent(index);
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+
+    function updateContent(index) {
+      const data = roadmapData[index];
+      contentDiv.innerHTML = `<h3>${data.title}</h3><p>${data.desc}</p>`;
+    }
+
+    // === Countdown Timer (to July 20, 2024) ===
+    const endDate = new Date("July 20, 2024 23:59:59").getTime();
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const gap = endDate - now;
+
+      if (gap <= 0) {
+        document.getElementById("countdown").innerHTML = "<p><strong>Registration is now closed!</strong></p>";
+        return;
+      }
+
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
+      const day = hour * 24;
+
+      const d = Math.floor(gap / day);
+      const h = Math.floor((gap % day) / hour);
+      const m = Math.floor((gap % hour) / minute);
+      const s = Math.floor((gap % minute) / second);
+
+      daysEl.innerText = d;
+      hoursEl.innerText = h;
+      minutesEl.innerText = m;
+      secondsEl.innerText = s;
+    }, 1000);
+  </script>
+
+</body>
+</html>
