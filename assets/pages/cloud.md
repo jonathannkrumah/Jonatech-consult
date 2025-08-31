@@ -1,3 +1,7 @@
+layout: default
+title: Cloud Training
+permalink: /cloud/
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
