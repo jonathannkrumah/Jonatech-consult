@@ -10,6 +10,8 @@
 
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" defer></script>
 
   <style>
     * {
@@ -602,14 +604,41 @@
 
   <!-- Header -->
    
-  <header>
+  <!-- <header>
     <div class="cloud cloud-1"></div>
     <div class="cloud cloud-2"></div>
     <div class="cloud cloud-3"></div>
     
     <h1 class="animate-slide-up">JonaTech Consult</h1>
     <p class="animate-slide-up delay-1" style="color: #ddd;">Presents: 12-Week Cloud Intensive Training Program</p>
-  </header>
+  </header> -->
+
+  <!-- Header / Nav -->
+<header id="top">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="JonaTech Home">
+      <div class="logo">
+        <!-- optional logo image -->
+      </div>
+      <span>JonaTech Consult</span>
+    </a>
+    <nav>
+      <button class="menu-toggle" aria-label="Open menu" id="menuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul id="menu">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="cloud.html">Cloud Training</a></li> <!-- new link -->
+        <li><a href="index.html#contact" class="btn outline">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 
   <!-- Main Content -->
   <div class="container">
