@@ -225,13 +225,16 @@ nav a.active, nav a:hover {
 
 /* Hero */
 .hero {
-  padding: 90px 0 40px;
   position: relative;
+  height: 70vh; /* Reduced from 100vh */
+  min-height: 500px; /* Minimum height */
   overflow: hidden;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
 }
+.hero-container {
+  position: relative;
+  height: 100%;
+}
+
 
 /* Hero Section with Slider */
 .hero-slider {
@@ -249,35 +252,51 @@ nav a.active, nav a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-position: center;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
-  z-index: 1;
+  transition: opacity 0.8s ease;
 }
 
 .slide.active {
   opacity: 1;
-  z-index: 2;
 }
 
 /* Ensure text content is above the slider */
-.hero .container {
+.home-container {
   position: relative;
-  z-index: 3;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 /* Slider controls */
 .slider-controls {
   position: absolute;
   bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  z-index: 3;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 15px;
-  z-index: 4;
+  gap: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 50vh;
+    min-height: 350px;
+  }
 }
 
 .slider-prev, .slider-next {
