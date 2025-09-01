@@ -198,14 +198,14 @@ nav a.active, nav a:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 123, 255, 0.3);
   transition: .5s ease-in-out;
-  color:#fff;
+  color:white;
 }
 .animate-pulse:hover::before {
   left: 100%;
 }
 
 .animate-pulse {
-      animation: pulse 2s ease-in-out infinite;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .menu-toggle {
