@@ -554,7 +554,7 @@ h1 {
 }
 .avatar img{
   width: 60px;
-  border-radius: 40px;
+  border-radius: 50px;
 }
 .person:hover .avatar {
   transform: scale(1.1) rotate(5deg);
