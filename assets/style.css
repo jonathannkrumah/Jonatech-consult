@@ -550,6 +550,7 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 .person:hover .avatar {
   transform: scale(1.1) rotate(5deg);
