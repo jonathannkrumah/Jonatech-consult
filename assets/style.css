@@ -524,7 +524,7 @@ h1 {
   grid-template-columns: repeat(4, minmax(0,1fr));
   gap: 20px;
 }
-#team{
+#team .container{
   background-color: #eeeeee;
 }
 .person {
