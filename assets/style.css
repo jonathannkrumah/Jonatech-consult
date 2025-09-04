@@ -525,7 +525,7 @@ h1 {
   gap: 20px;
   background-color: #fff;
 }
-#team{
+#team.container{
   background-color: #ffffffc4;
 }
 
