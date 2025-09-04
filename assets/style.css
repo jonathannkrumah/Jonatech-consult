@@ -525,6 +525,9 @@ h1 {
   gap: 20px;
   background-color: #fff;
 }
+#team{
+  background-color: #ffffffc4;
+}
 
 .person {
   background: #f8f9fa;
