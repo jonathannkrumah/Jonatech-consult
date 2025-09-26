@@ -48,8 +48,8 @@ section {
   padding: 80px 0;
 }
 
-/* Light sections (About, Services, Contact) */
-#about, #services, #contact {
+/* Light sections (About, Services, Contact, Tech News Preview) */
+#about, #services, #contact, #tech-news-preview {
   background-color: var(--light-bg);
   color: var(--light-text);
 }
@@ -1100,5 +1100,76 @@ footer {
     width: 100px;
     height: 100px;
     margin: -50px auto 10px;
+  }
+}
+
+/* Tech News Preview Section */
+.news-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.news-preview-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.news-preview-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.news-preview-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.news-preview-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.news-preview-content p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.news-preview-date {
+  font-size: 0.9rem;
+  color: #999;
+  font-weight: 500;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Responsive for news preview */
+@media (max-width: 768px) {
+  .news-preview-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .news-preview-card {
+    padding: 1.5rem;
   }
 }
